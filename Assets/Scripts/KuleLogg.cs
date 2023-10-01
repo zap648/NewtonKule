@@ -35,7 +35,7 @@ public class KuleLogg : MonoBehaviour
 
     void logBall()
     {
-        log[bilde].normal = kule.N;
+        log[bilde].normal = kule.n;
         log[bilde].akselerasjon = kule.a;
         log[bilde].fart = kule.v;
         log[bilde].posisjon = kule.p;
