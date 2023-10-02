@@ -18,13 +18,12 @@ public class KuleLogg : MonoBehaviour
     public KuleManager kule;
     public logHolder[] log;
 
-    private int bilde;
+    public int bilde;
 
     // Start is called before the first frame update
     void Start()
     {
         kule = this.GetComponent<KuleManager>();
-        InvokeRepeating("logBall", 0.0f, 1.0f);
     }
     
     // Update is called once per frame
@@ -33,7 +32,7 @@ public class KuleLogg : MonoBehaviour
 
     }
 
-    void logBall()
+    public void logKule()
     {
         log[bilde].normal = kule.n;
         log[bilde].akselerasjon = kule.a;

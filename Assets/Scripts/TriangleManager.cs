@@ -6,10 +6,7 @@ using static UnityEditor.PlayerSettings;
 public class TriangleManager : MonoBehaviour
 {
     [Header("Trekanter")]
-    public GameObject t0;
-    public GameObject t1;
-    public GameObject t2;
-    public GameObject t3;
+    public GameObject[] t;
 
     [Header("Punkt")]
     public Vector3 p0;
@@ -22,10 +19,10 @@ public class TriangleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        triSetup(t0, p0, p2, p1, t1, null, null);
-        triSetup(t1, p1, p2, p3, t0, t2, null);
-        triSetup(t2, p2, p5, p3, t1, t3, null);
-        triSetup(t3, p2, p4, p5, t2, null, null);
+        triSetup(t[0], p0, p2, p1, t[1], null, null);
+        triSetup(t[1], p1, p2, p3, t[0], t[2], null);
+        triSetup(t[2], p2, p5, p3, t[1], t[3], null);
+        triSetup(t[3], p2, p4, p5, t[2], null, null);
     }
 
     void triSetup(GameObject tri, Vector3 p_0, Vector3 p_1, Vector3 p_2, GameObject tri_0, GameObject tri_1, GameObject tri_2)

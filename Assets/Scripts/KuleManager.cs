@@ -19,6 +19,7 @@ public class KuleManager : MonoBehaviour
     public Vector3 n;
 
     [Header("Info")]
+    [SerializeField] KuleLogg logg;
     public GameObject trekant;
     [SerializeField] triInfo tri;
     [SerializeField] bool onTri = false;    
@@ -30,10 +31,14 @@ public class KuleManager : MonoBehaviour
         onTri = CheckOnTriangle(tri.p0, tri.p1, tri.p2, p);
         Debug.Log(onTri);
 
+        logg = GetComponent<KuleLogg>();
+
         g = new Vector3(0.0f, -9.81f, 0.0f);
         if (onTri || FindTri(tri.t)) n = tri.n * Vector3.Dot(-g, tri.n);
         else n = Vector3.zero;
         p = transform.position;
+
+        
     }
 
     // Update is called once per frame
@@ -100,6 +105,9 @@ public class KuleManager : MonoBehaviour
 
     bool FindTri(GameObject[] nabo)
     {
+        if (logg.bilde < logg.log.Length)
+            logg.logKule();
+
         triInfo triI;
         for (int i = 0; i < nabo.Length; i++)
         {
